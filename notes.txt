@@ -15,7 +15,7 @@ Team Creation
     - Calculate total potential
     - Generate another team
     - Calculate total potential
-    - Compaare potentials and keep best
+    - Compare potentials and keep best
     - Repeat
 
 Other
