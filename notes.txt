@@ -1,0 +1,23 @@
+Fixtures
+    - Get all fixtures
+    - Could read from "https://www.premierleague.com/fixtures"
+    - Get where date is after Gameweek start and before next Gameweek start
+    - "https://www.bbc.co.uk/sport/football/premier-league/scores-fixtures/2020-09"
+
+Predictor
+    - Value * strength_attack / strength_defence = Potential
+    - Rank players on predicted value
+    - Select theoritcal best lineup for next 3 weeks
+    - Pick players that appear 3 times etc
+
+Team Creation
+    - Generate a team
+    - Calculate total potential
+    - Generate another team
+    - Calculate total potential
+    - Compaare potentials and keep best
+    - Repeat
+
+Other
+    - Find a way to limit to 3 players from the same team
+        - Foreach player in team, count where teamName matches. If 3 -> skip
