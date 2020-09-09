@@ -11,6 +11,8 @@ namespace fantasy.Classes
         public int DEF { get; set; }
         public int MID { get; set; }
         public int FWD { get; set; }
+        public string captain { get; set; }
+        public string viceCaptain { get; set; }
         
         public string Generate(List<Player> players)
         {
@@ -38,7 +40,7 @@ namespace fantasy.Classes
                         this.DEF++;
                         this.value += player.now_cost;
                         this.players.Add(player);
-                    } else if (player.position == "MID" && this.MID < 5 && (this.value + player.now_cost) <= 1000 && player.second_name != "De Bruyne")
+                    } else if (player.position == "MID" && this.MID < 5 && (this.value + player.now_cost) <= 1000)
                     {
                         this.MID++;
                         this.value += player.now_cost;
@@ -59,7 +61,7 @@ namespace fantasy.Classes
                         this.DEF++;
                         this.value += player.now_cost;
                         this.players.Add(player);
-                    } else if (player.position == "MID" && this.MID < 5 && (this.value + player.now_cost) == 1000 && player.second_name != "De Bruyne")
+                    } else if (player.position == "MID" && this.MID < 5 && (this.value + player.now_cost) == 1000)
                     {
                         this.MID++;
                         this.value += player.now_cost;
@@ -89,8 +91,16 @@ namespace fantasy.Classes
             this.MID = 0; // 2 - 5
             this.FWD = 0; // 1 - 3
 
+            int i = 0;
+
             foreach (var player in this.players)
             {
+                if (i == 0){
+                    this.captain = player.second_name;
+                } else if (i == 1) {
+                    this.viceCaptain = player.second_name;
+                }
+                i++;
                 if ((this.starters.Count < 11)){
                     if (player.position == "GKP" && this.GKP < 1){
                         this.GKP++;
