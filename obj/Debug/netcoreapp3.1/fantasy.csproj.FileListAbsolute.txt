@@ -11,3 +11,5 @@ C:\Users\oshov\fantasy\obj\Debug\netcoreapp3.1\fantasy.csproj.CoreCompileInputs.
 C:\Users\oshov\fantasy\obj\Debug\netcoreapp3.1\fantasy.dll
 C:\Users\oshov\fantasy\obj\Debug\netcoreapp3.1\fantasy.pdb
 C:\Users\oshov\fantasy\obj\Debug\netcoreapp3.1\fantasy.genruntimeconfig.cache
+C:\Users\oshov\fantasy\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\oshov\fantasy\obj\Debug\netcoreapp3.1\fantasy.csproj.CopyComplete

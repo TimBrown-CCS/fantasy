@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Kr+Q5LljXkWAx/DyG97ZpZuxQm3hvJUTjPlYDoEhRDkfK6E3B9+MTMNpXFplWn0CfHjZ0PvK3w5lwGKUBHAVCw==",
+  "dgSpecHash": "n8+U7gv2I8VtZvnsdHQKK6A5albxfiQlJsy0Zm/Osr98BdRhlGrI5LisAfYaaoXBsQjgPYwTKuJS6dmRPeo9Wg==",
   "success": true,
   "projectFilePath": "C:\\Users\\oshov\\fantasy\\fantasy.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\oshov\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
