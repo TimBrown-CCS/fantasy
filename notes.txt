@@ -1,9 +1,3 @@
-Fixtures
-    - Get all fixtures
-    - Could read from "https://www.premierleague.com/fixtures"
-    - Get where date is after Gameweek start and before next Gameweek start
-    - "https://www.bbc.co.uk/sport/football/premier-league/scores-fixtures/2020-09"
-
 Predictor
     - Value * strength_attack / strength_defence = Potential
     - Rank players on predicted value
@@ -19,5 +13,4 @@ Team Creation
     - Repeat
 
 Other
-    - Find a way to limit to 3 players from the same team
-        - Foreach player in team, count where teamName matches. If 3 -> skip
+    - Remake team if < 15 players

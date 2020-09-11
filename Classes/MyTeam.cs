@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace fantasy.Classes
@@ -30,6 +31,20 @@ namespace fantasy.Classes
             this.FWD = 0;
             foreach (var player in players)
             {
+                var team = player.team;
+                int i = 0;
+                foreach (var selectedPlayer in this.players)
+                {
+                    if (selectedPlayer.team == team)
+                    {
+                        i++;
+                    }
+                }
+                if (i >= 3)
+                {
+                    continue;
+                }
+
                 if (this.players.Count < 15){
                     if (player.position == "GKP" && this.GKP < 2 && (this.value + player.now_cost) <= 1000){
                         this.GKP++;
