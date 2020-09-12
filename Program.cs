@@ -17,7 +17,7 @@ namespace fantasy
             await getFixtures.AllFixtures();
             Console.WriteLine("Picking team");
             ApiConnect apiConnect = new ApiConnect();
-            MyTeam myTeam = await apiConnect.Connect();
+            MyTeam myTeam = await apiConnect.Connect(getFixtures.fixtures);
             Console.WriteLine("Value: " + myTeam.value + ",000");
             Console.WriteLine("Players: " + myTeam.players.Count);
             if(myTeam.players.Count < 15){
@@ -26,7 +26,7 @@ namespace fantasy
             Console.WriteLine("\r\nFull Team");
             foreach (var player in myTeam.players)
             {
-                Console.WriteLine(player.second_name + " - " + player.teamName + " - " + player.position);
+                Console.WriteLine(player.second_name + " - " + player.teamName + " - " + player.position + " - " + player.potential);
             }
             Console.WriteLine("\r\nStarters");
             foreach (var player in myTeam.starters)

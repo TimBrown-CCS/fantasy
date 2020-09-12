@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace fantasy.Classes
 {
@@ -15,12 +16,8 @@ namespace fantasy.Classes
         public string captain { get; set; }
         public string viceCaptain { get; set; }
         
-        public string Generate(List<Player> players)
+        public string Generate(List<Player> players, List<Fixture> fixtures, List<Team> teams)
         {
-            players.Sort(delegate(Player x, Player y)
-            {
-                return y.value_season.CompareTo(x.value_season);
-            });
             // 2 GKP
             // 5 DEF
             // 5 MID
@@ -31,6 +28,47 @@ namespace fantasy.Classes
             this.FWD = 0;
             foreach (var player in players)
             {
+                Fixture fixture = fixtures.Where(Fixture => Fixture.HomeTeam == player.teamName || Fixture.AwayTeam == player.teamName).ToArray()[0];
+                decimal thisStrength;
+                decimal opponentStrength;
+                if(fixture.AwayTeam == player.teamName)
+                {
+                    if(player.position == "DEF" || player.position == "GKP")
+                    {
+                        thisStrength = teams.Where(Team => Team.name == player.teamName).ToArray()[0].strength_defence_away;
+                        opponentStrength = teams.Where(Team => Team.name == fixture.HomeTeam).ToArray()[0].strength_attack_home;
+
+                    } else {
+                        thisStrength = teams.Where(Team => Team.name == player.teamName).ToArray()[0].strength_attack_away;
+                        opponentStrength = teams.Where(Team => Team.name == fixture.HomeTeam).ToArray()[0].strength_defence_home;
+                    }
+                } else {
+                    if(player.position == "DEF" || player.position == "GKP")
+                    {
+                        thisStrength = teams.Where(Team => Team.name == player.teamName).ToArray()[0].strength_defence_home;
+                        opponentStrength = teams.Where(Team => Team.name == fixture.HomeTeam).ToArray()[0].strength_attack_away;
+
+                    } else {
+                        thisStrength = teams.Where(Team => Team.name == player.teamName).ToArray()[0].strength_attack_home;
+                        opponentStrength = teams.Where(Team => Team.name == fixture.HomeTeam).ToArray()[0].strength_defence_away;
+                    }
+                }
+                var diff = Decimal.Round(thisStrength / opponentStrength, 2);
+                player.potential = diff*player.value_season;
+
+            }
+
+            players.Sort(delegate(Player x, Player y)
+            {
+                return y.potential.CompareTo(x.potential);
+            });
+
+            foreach (var player in players)
+            {
+                if(player.status != "a"){
+                    Console.WriteLine(player.second_name + " - " + player.status);
+                    continue;
+                }
                 var team = player.team;
                 int i = 0;
                 foreach (var selectedPlayer in this.players)

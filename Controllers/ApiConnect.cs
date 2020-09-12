@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using fantasy.Classes;
@@ -12,7 +13,7 @@ namespace fantasy.Controllers
     {
         private static string url = "https://fantasy.premierleague.com/api/bootstrap-static/";
 
-        public async Task<MyTeam> Connect(){
+        public async Task<MyTeam> Connect(List<Fixture> fixtures){
             HttpRequestMessage request = new HttpRequestMessage(){
                 RequestUri = new Uri(url),
                 Method = HttpMethod.Get
@@ -30,6 +31,14 @@ namespace fantasy.Controllers
             var players = JsonConvert.DeserializeObject<List<Player>>(JsonConvert.SerializeObject(obj["elements"]));
             var element_stats = obj["element_stats"];
             var element_types = obj["element_types"];
+
+            var gameWeek = 1;
+            var start = DateTime.Parse(events[gameWeek-1]["deadline_time"].ToString()).AddDays(-1);
+            var end = DateTime.Parse(events[gameWeek]["deadline_time"].ToString()).AddDays(-1);
+            Console.WriteLine(end);
+            List<Fixture> gameweekFixtures = fixtures.Where(Fixture => Fixture.Date > start && Fixture.Date < end).ToList();
+            Console.WriteLine(JsonConvert.SerializeObject(gameweekFixtures));
+
 
             // Console.WriteLine(element_types);
 
@@ -55,7 +64,7 @@ namespace fantasy.Controllers
             MyTeam myTeam = new MyTeam();
             myTeam.players = new List<Player>();
             myTeam.starters = new List<Player>();
-            myTeam.Generate(players);
+            myTeam.Generate(players, gameweekFixtures, teams);
             myTeam.BestStarters();
             return myTeam;
         }

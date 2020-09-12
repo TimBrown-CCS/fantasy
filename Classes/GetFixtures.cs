@@ -67,7 +67,8 @@ namespace fantasy.Classes
             int i = 0;
             while (i < homeTeams.Count)
             {
-                Fixture fixture = new Fixture(day, month, year, homeTeams[i].InnerText, awayTeams[i].InnerText);
+                DateTime date = new DateTime(Convert.ToInt32(year), Convert.ToInt32(month), Convert.ToInt32(day));
+                Fixture fixture = new Fixture(date, homeTeams[i].InnerText, awayTeams[i].InnerText);
                 this.fixtures.Add(fixture);
                 i++;
             }
