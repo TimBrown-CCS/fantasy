@@ -14,3 +14,6 @@ Team Creation
 
 Other
     - Remake team if < 15 players
+    - Get League - https://fantasy.premierleague.com/api/leagues-classic/598566/standings/?page_new_entries=1&page_standings=1&phase=1
+        - Or - https://fantasy.premierleague.com/api/leagues-classic/598566/standings/
+    - Get existing team - https://fantasy.premierleague.com/api/my-team/2683770/
