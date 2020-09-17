@@ -31,7 +31,7 @@ namespace fantasy.Controllers
             var element_stats = obj["element_stats"];
             var element_types = obj["element_types"];
 
-            // Console.WriteLine(element_types);
+            Console.WriteLine(JsonConvert.SerializeObject(players[0]));
 
             foreach (var player in players)
             {
