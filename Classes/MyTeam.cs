@@ -34,6 +34,11 @@ namespace fantasy.Classes
             JObject obj = JObject.Parse(dec.ToString());
             Transfer transfer = JsonConvert.DeserializeObject<Transfer>(obj["transfers"].ToString());
             Console.WriteLine(JsonConvert.SerializeObject(transfer));
+            /*
+            Sort by potential
+            While transfer.made < transfer.limit -> find best replacement for lowest player in same position within budget
+            Budget = transfer.bank + player.value
+            */
             return null;
         }
         

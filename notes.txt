@@ -18,6 +18,13 @@ Team Creation
     - Compare potentials and keep best
     - Repeat
 
+Improve Existing Team
+    - Pull existing team
+    - Find Best 11 with existing team
+    - Find Best 11 with worst player in each position replaced
+    - Compare potential scores of each team
+    - Pick best team
+
 Other
     - Find a way to limit to 3 players from the same team
         - Foreach player in team, count where teamName matches. If 3 -> skip
