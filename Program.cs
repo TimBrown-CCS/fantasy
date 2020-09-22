@@ -37,7 +37,7 @@ namespace fantasy
             }
             Console.WriteLine("\r\nCaptain: " + myTeam.captain);
             Console.WriteLine("Vice Captain: " + myTeam.viceCaptain);
-            Console.WriteLine(JsonConvert.SerializeObject(myTeam));
+            // Console.WriteLine(JsonConvert.SerializeObject(myTeam));
         }
     }
 }

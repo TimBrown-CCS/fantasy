@@ -32,7 +32,7 @@ namespace fantasy.Controllers
             var element_stats = obj["element_stats"];
             var element_types = obj["element_types"];
 
-            var gameWeek = 1;
+            var gameWeek = 3;
             var start = DateTime.Parse(events[gameWeek-1]["deadline_time"].ToString()).AddDays(-1);
             var end = DateTime.Parse(events[gameWeek]["deadline_time"].ToString()).AddDays(-1);
             Console.WriteLine(end);
