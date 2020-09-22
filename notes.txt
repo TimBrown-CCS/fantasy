@@ -9,8 +9,15 @@ Team Creation
     - Calculate total potential
     - Generate another team
     - Calculate total potential
-    - Compaare potentials and keep best
+    - Compare potentials and keep best
     - Repeat
+
+Improve Existing Team
+    - Pull existing team
+    - Find Best 11 with existing team
+    - Find Best 11 with worst player in each position replaced
+    - Compare potential scores of each team
+    - Pick best team
 
 Other
     - Remake team if < 15 players

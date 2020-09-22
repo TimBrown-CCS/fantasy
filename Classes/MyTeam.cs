@@ -1,6 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace fantasy.Classes
 {
@@ -15,6 +19,29 @@ namespace fantasy.Classes
         public int FWD { get; set; }
         public string captain { get; set; }
         public string viceCaptain { get; set; }
+
+        public async Task<MyTeam> Existing(List<Player> players)
+        {
+            var cookie = Program.cookie;
+            var url = "https://fantasy.premierleague.com/api/my-team/2683770/";
+            HttpRequestMessage request = new HttpRequestMessage(){
+                RequestUri = new Uri(url),
+                Method = HttpMethod.Get
+            };
+            request.Headers.Add("Cookie", cookie);
+            var response = await Program.client.SendAsync(request);
+            var output = response.Content.ReadAsStringAsync().Result;
+            object dec = JsonConvert.DeserializeObject(output);
+            JObject obj = JObject.Parse(dec.ToString());
+            Transfer transfer = JsonConvert.DeserializeObject<Transfer>(obj["transfers"].ToString());
+            Console.WriteLine(JsonConvert.SerializeObject(transfer));
+            /*
+            Sort by potential
+            While transfer.made < transfer.limit -> find best replacement for lowest player in same position within budget
+            Budget = transfer.bank + player.value
+            */
+            return null;
+        }
         
         public string Generate(List<Player> players, List<Fixture> fixtures, List<Team> teams)
         {

@@ -65,6 +65,7 @@ namespace fantasy.Controllers
             myTeam.players = new List<Player>();
             myTeam.starters = new List<Player>();
             myTeam.Generate(players, gameweekFixtures, teams);
+            await myTeam.Existing(players);
             myTeam.BestStarters();
             return myTeam;
         }
