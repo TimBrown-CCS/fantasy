@@ -4,6 +4,7 @@ namespace fantasy.Classes
     {
         public int id { get; set; }
         public string second_name { get; set; }
+        public string web_name { get; set; }
         public int team { get; set; }
         public string teamName { get; set; }
         public int now_cost { get; set; }

@@ -9,6 +9,7 @@ namespace fantasy
     class Program
     {
         public static HttpClient client = new HttpClient();
+        public static string cookie = "pl_profile=eyJzIjogIld6SXNNVFkzTWpJM09EZGQ6MWtJN3R1OkxyclZ3S0lwNHBVaTNTTno3UmNwSnBCNmV5byIsICJ1IjogeyJpZCI6IDE2NzIyNzg3LCAiZm4iOiAiVGltIiwgImxuIjogIkJyb3duIiwgImZjIjogM319; csrftoken=ArE8KVyt9hPVDbZLwdNU2qhjSsCfTL5JF1FWh8MFA2x4kmDgFjnbEyMjvJ9A2QP1; sessionid=.eJyrVopPLC3JiC8tTi2Kz0xRslIyNDM3MjK3MFfSQZZKSkzOTs0DyRfkpBXk6IFk9AJ8QoFyxcHB_o5ALqqGjMTiDKBqS0MTy8S0VHNjI7OUlFTzFENjw1QzY1MLQ0uzZAPDVEMDCxOL1DRDS6VaAHt0K_M:1kI7tv:6TCHDRmp0u5i3DsP7wdqBWPpo2o";
         static async System.Threading.Tasks.Task Main(string[] args)
         {
             ApiConnect apiConnect = new ApiConnect();
@@ -20,12 +21,12 @@ namespace fantasy
                 Console.WriteLine("\r\nFull Team");
                 foreach (var player in myTeam.players)
                 {
-                    Console.WriteLine(player.second_name + " - " + player.teamName + " - " + player.position);
+                    Console.WriteLine(player.web_name + " - " + player.teamName + " - " + player.position);
                 }
                 Console.WriteLine("\r\nStarters");
                 foreach (var player in myTeam.starters)
                 {
-                    Console.WriteLine(player.second_name + " - " + player.teamName + " - " + player.position);
+                    Console.WriteLine(player.web_name + " - " + player.teamName + " - " + player.position);
                 }
                 Console.WriteLine("\r\nCaptain: " + myTeam.captain);
                 Console.WriteLine("Vice Captain: " + myTeam.viceCaptain);

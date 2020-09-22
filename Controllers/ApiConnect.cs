@@ -31,7 +31,7 @@ namespace fantasy.Controllers
             var element_stats = obj["element_stats"];
             var element_types = obj["element_types"];
 
-            Console.WriteLine(JsonConvert.SerializeObject(players[0]));
+            // Console.WriteLine(JsonConvert.SerializeObject(players[0]));
 
             foreach (var player in players)
             {
@@ -55,6 +55,7 @@ namespace fantasy.Controllers
             MyTeam myTeam = new MyTeam();
             myTeam.players = new List<Player>();
             myTeam.starters = new List<Player>();
+            await myTeam.Existing(players);
             myTeam.Generate(players);
             myTeam.BestStarters();
             return myTeam;
