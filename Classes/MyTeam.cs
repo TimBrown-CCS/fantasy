@@ -130,6 +130,10 @@ namespace fantasy.Classes
                     break;
                 }
             }
+            this.players.Sort(delegate(Player x, Player y)
+            {
+                return y.element_type.CompareTo(x.element_type);
+            });
             return null;
         }
 

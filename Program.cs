@@ -24,14 +24,15 @@ namespace fantasy
                 throw new SystemException("Not enough players selected");
             }
             Console.WriteLine("\r\nFull Team");
+
             foreach (var player in myTeam.players)
             {
-                Console.WriteLine(player.second_name + " - " + player.teamName + " - " + player.position + " - " + player.potential);
+                Console.WriteLine(player.web_name + " - " + player.teamName + " - " + player.position + " - " + player.potential);
             }
             Console.WriteLine("\r\nStarters");
             foreach (var player in myTeam.starters)
             {
-                Console.WriteLine(player.second_name + " - " + player.teamName + " - " + player.position);
+                Console.WriteLine(player.web_name + " - " + player.teamName + " - " + player.position);
             }
             Console.WriteLine("\r\nCaptain: " + myTeam.captain);
             Console.WriteLine("Vice Captain: " + myTeam.viceCaptain);
