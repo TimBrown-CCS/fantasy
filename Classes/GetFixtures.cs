@@ -12,6 +12,7 @@ namespace fantasy.Classes
     public class GetFixtures
     {
         public List<Fixture> fixtures = new List<Fixture>();
+        ProgressBar progress = new ProgressBar();
         public async Task AllFixtures()
         {
             int day = 12;
@@ -40,9 +41,10 @@ namespace fantasy.Classes
                         month = 1;
                         year++;
                     }
-                    Console.WriteLine(day + "/" + month + "/" + year + " - " + this.fixtures.Count + " fixtures logged");
+                    // Console.WriteLine(day + "/" + month + "/" + year + " - " + this.fixtures.Count + " fixtures logged");
                 }
                 if(day > 31 && month > 8 && year > 2021 || this.fixtures.Count == 380){
+                    progress.Dispose();
                     continueRunning = false;
                 }
             }
@@ -71,6 +73,7 @@ namespace fantasy.Classes
                 Fixture fixture = new Fixture(date, homeTeams[i].InnerText, awayTeams[i].InnerText);
                 this.fixtures.Add(fixture);
                 i++;
+                progress.Report((double) fixtures.Count/380);
             }
             return "OK";
         }
